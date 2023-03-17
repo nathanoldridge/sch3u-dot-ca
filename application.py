@@ -1,9 +1,5 @@
 from flask import Flask, render_template
 
-# print a nice greeting.
-def say_hello(username = "World"):
-    return '<p>Hello %s!</p>\n' % username
-
 # some bits of text for the page.
 header_text = '''
     <html>\n<head> <title>Chemistry Practice</title>
@@ -15,7 +11,7 @@ homepagetext = '''
     to the URL (for example: <code>/Thelonious</code>) to say hello to
     someone specific.</p>\n'''
 #home_link = '<p><a href="/">Back</a></p>\n'
-footer_text = '</body>\n</html>'
+footer_text = '</body><hr />&copy; 2023 Nathan Oldridge (aka ChemistNate)</html>'
 about_text = '''<h1>SCH3U</h1><hr /><p>This app was written by Nathan
     Oldridge (ChemistNate).'''
 
@@ -24,7 +20,7 @@ application = Flask(__name__)
 
 # add a rule for the index page.
 application.add_url_rule('/', 'index', (lambda: header_text +
-    say_hello() + homepagetext + footer_text))
+    homepagetext + footer_text))
 
 application.add_url_rule('/about', 'about', (lambda: header_text +
     about_text + footer_text))
